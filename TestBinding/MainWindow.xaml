@@ -6,7 +6,35 @@
         xmlns:local="clr-namespace:TestBinding"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowVm></local:MainWindowVm>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary Source="GlobalResources.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0">Имя</TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 Text="{Binding Person.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        </TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="0">Номер</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 Text="{Binding Person.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        </TextBox>
+        <Button Grid.Row="2" Grid.Column="1"
+                Command="{Binding PrintPerson}">
+            Распечатать персону
+        </Button>
     </Grid>
 </Window>
