@@ -25,7 +25,12 @@ public partial class PersonControl : UserControl
     public Person Person
     {
         get => (Person)GetValue(PersonProperty);
-        set => SetValue(PersonProperty, value);
+        set
+        {
+            Console.WriteLine($"PersonControl: set: {value}");
+            SetValue(PersonProperty, value);
+            value.PropertyChanged += (obj, _) => { Console.WriteLine($"PersonControl: changed: {obj}"); };
+        }
     }
 
     public DelegateCommand PrintPerson2 { get; }

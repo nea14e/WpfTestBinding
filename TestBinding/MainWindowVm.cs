@@ -9,11 +9,17 @@ public class MainWindowVm : BindableBase
     public Person Person
     {
         get => _person;
-        set => SetProperty(ref _person, value);
+        set
+        {
+            Console.WriteLine($"MainWindowVm: set: {value}");
+            SetProperty(ref _person, value);
+            value.PropertyChanged += (obj, _) =>
+            {
+                Console.WriteLine($"MainWindowVm: changed: {obj}");
+                RaisePropertyChanged(nameof(Person));
+            };
+        }
     }
 
-    public DelegateCommand PrintPerson => new DelegateCommand(() =>
-    {
-        MessageBox.Show($"Person: {Person}");
-    });
+    public DelegateCommand PrintPerson => new DelegateCommand(() => { MessageBox.Show($"Person: {Person}"); });
 }

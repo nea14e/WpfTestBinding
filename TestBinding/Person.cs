@@ -1,9 +1,30 @@
 ﻿namespace TestBinding;
 
-public class Person
+public class Person : BindableBase
 {
-    public string Name { get; set; }
-    public int Number { get; set; }
+    private string _name;
+
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            Console.WriteLine($"Person: set: {value}");
+            SetProperty(ref _name, value);
+        }
+    }
+
+    private int _number;
+
+    public int Number
+    {
+        get => _number;
+        set
+        {
+            Console.WriteLine($"Person: set: {value}");
+            SetProperty(ref _number, value);
+        }
+    }
 
     public Person() : this("Qwerty", 123)
     {
