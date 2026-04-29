@@ -8,7 +8,11 @@ public class MainWindowVm : BindableBase
 
     public Person Person
     {
-        get => _person;
+        get
+        {
+            Console.WriteLine($"MainWindowVm: get: {_person}");
+            return _person;
+        }
         set
         {
             Console.WriteLine($"MainWindowVm: set: {value}");

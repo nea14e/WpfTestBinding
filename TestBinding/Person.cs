@@ -8,7 +8,11 @@ public class Person : BindableBase
 
     public string Name
     {
-        get => _name;
+        get
+        {
+            Console.WriteLine($"Person: get: {_name}");
+            return _name;
+        }
         set
         {
             Console.WriteLine($"Person: set: {value}");
@@ -20,7 +24,11 @@ public class Person : BindableBase
 
     public int Number
     {
-        get => _number;
+        get
+        {
+            Console.WriteLine($"Person: get: {_number}");
+            return _number;
+        }
         set
         {
             Console.WriteLine($"Person: set: {value}");

@@ -25,7 +25,12 @@ public partial class PersonControl : UserControl
 
     public Person Person
     {
-        get => (Person)GetValue(PersonProperty);
+        get
+        {
+            var value = (Person)GetValue(PersonProperty);
+            Console.WriteLine($"PersonControl: get: {value}");
+            return value;
+        }
         set
         {
             Console.WriteLine($"PersonControl: set: {value}");
