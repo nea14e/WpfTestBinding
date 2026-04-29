@@ -29,6 +29,7 @@ public class MainWindowVm : BindableBase
         {
             Person = _person
         };
+        PersonVm.PropertyChanged += (obj, _) => { Person = ((PersonVm)obj!).Person; };
     }
 
     public DelegateCommand PrintPerson => new DelegateCommand(() => { MessageBox.Show($"Person: {Person}"); });
