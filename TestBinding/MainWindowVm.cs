@@ -13,11 +13,6 @@ public class MainWindowVm : BindableBase
         {
             Console.WriteLine($"MainWindowVm: set: {value}");
             SetProperty(ref _person, value);
-            value.PropertyChanged += (obj, _) =>
-            {
-                Console.WriteLine($"MainWindowVm: changed: {obj}");
-                RaisePropertyChanged(nameof(Person));
-            };
         }
     }
 

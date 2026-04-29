@@ -30,7 +30,6 @@ public partial class PersonControl : UserControl
         {
             Console.WriteLine($"PersonControl: set: {value}");
             SetValue(PersonProperty, value);
-            value.PropertyChanged += (obj, _) => { Console.WriteLine($"PersonControl: changed: {obj}"); };
         }
     }
 
