@@ -18,6 +18,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -25,27 +26,32 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0">Имя</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0">Id</TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1"
+                 Text="{Binding Person.Id, Mode=OneWay}"
+                 Style="{StaticResource SelectableText}">
+        </TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="0">Имя</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1"
                  Text="{Binding Person.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
-        <TextBlock Grid.Row="1" Grid.Column="0">Номер</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1"
+        <TextBlock Grid.Row="2" Grid.Column="0">Номер</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1"
                  Text="{Binding Person.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
-        <Button Grid.Row="2" Grid.Column="1"
+        <Button Grid.Row="3" Grid.Column="1"
                 Command="{Binding PrintPerson}">
             Распечатать персону
         </Button>
-        <Button Grid.Row="3" Grid.Column="1"
+        <Button Grid.Row="4" Grid.Column="1"
                 Command="{Binding NewPerson}">
             Новая персона
         </Button>
         <GridSplitter Grid.Row="0" Grid.Column="2"
-                      Grid.RowSpan="3">
+                      Grid.RowSpan="5">
         </GridSplitter>
         <local:PersonControl Grid.Row="0" Grid.Column="3"
-                             Grid.RowSpan="4"
+                             Grid.RowSpan="5"
                              Person="{Binding Person, Mode=TwoWay}">
         </local:PersonControl>
     </Grid>

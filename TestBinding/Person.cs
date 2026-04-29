@@ -2,6 +2,8 @@
 
 public class Person : BindableBase
 {
+    public Guid Id { get; } = Guid.NewGuid();
+
     private string _name;
 
     public string Name
