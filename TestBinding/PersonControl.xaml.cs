@@ -11,7 +11,7 @@ public partial class PersonControl : UserControl
             typeof(Person),
             typeof(PersonControl),
             new FrameworkPropertyMetadata(
-                new Person("Qwery", 123),
+                new Person("Qwery", 124),
                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault
             )
         );
@@ -19,6 +19,7 @@ public partial class PersonControl : UserControl
     public PersonControl()
     {
         PrintPerson2 = new(() => { MessageBox.Show($"Person-2: {Person}"); });
+        NewPerson2 = new(() => { Person = new Person("Qwery", 124); });
         InitializeComponent();
     }
 
@@ -34,4 +35,5 @@ public partial class PersonControl : UserControl
     }
 
     public DelegateCommand PrintPerson2 { get; }
+    public DelegateCommand NewPerson2 { get; }
 }

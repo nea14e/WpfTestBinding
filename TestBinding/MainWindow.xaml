@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -36,12 +37,16 @@
                 Command="{Binding PrintPerson}">
             Распечатать персону
         </Button>
+        <Button Grid.Row="3" Grid.Column="1"
+                Command="{Binding NewPerson}">
+            Новая персона
+        </Button>
         <GridSplitter Grid.Row="0" Grid.Column="2"
                       Grid.RowSpan="3">
         </GridSplitter>
         <local:PersonControl Grid.Row="0" Grid.Column="3"
-                             Grid.RowSpan="3"
-            Person="{Binding Person, Mode=TwoWay}">
+                             Grid.RowSpan="4"
+                             Person="{Binding Person, Mode=TwoWay}">
         </local:PersonControl>
     </Grid>
 </Window>

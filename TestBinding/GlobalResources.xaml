@@ -7,4 +7,7 @@
         <Setter Property="Padding" Value="3"></Setter>
         <Setter Property="Margin" Value="2"></Setter>
     </Style>
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="3"></Setter>
+    </Style>
 </ResourceDictionary>

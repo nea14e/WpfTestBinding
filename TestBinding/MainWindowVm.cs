@@ -22,4 +22,5 @@ public class MainWindowVm : BindableBase
     }
 
     public DelegateCommand PrintPerson => new DelegateCommand(() => { MessageBox.Show($"Person: {Person}"); });
+    public DelegateCommand NewPerson => new DelegateCommand(() => { Person = new Person(); });
 }
