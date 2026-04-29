@@ -4,6 +4,8 @@ namespace TestBinding;
 
 public class MainWindowVm : BindableBase
 {
+    public PersonVm PersonVm { get; set; }
+
     private Person _person = new("Qwerty", 123);
 
     public Person Person
@@ -17,7 +19,16 @@ public class MainWindowVm : BindableBase
         {
             Console.WriteLine($"MainWindowVm: set: {value}");
             SetProperty(ref _person, value);
+            PersonVm.Person = value;
         }
+    }
+
+    public MainWindowVm()
+    {
+        PersonVm = new PersonVm
+        {
+            Person = _person
+        };
     }
 
     public DelegateCommand PrintPerson => new DelegateCommand(() => { MessageBox.Show($"Person: {Person}"); });

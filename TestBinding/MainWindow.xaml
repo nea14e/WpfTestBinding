@@ -50,9 +50,9 @@
         <GridSplitter Grid.Row="0" Grid.Column="2"
                       Grid.RowSpan="5">
         </GridSplitter>
-        <local:PersonControl Grid.Row="0" Grid.Column="3"
-                             Grid.RowSpan="5"
-                             Person="{Binding Person, Mode=TwoWay}">
+        <local:PersonControl DataContext="{Binding PersonVm}"
+                             Grid.Row="0" Grid.Column="3"
+                             Grid.RowSpan="5">
         </local:PersonControl>
     </Grid>
 </Window>
